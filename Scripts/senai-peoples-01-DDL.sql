@@ -9,3 +9,15 @@ CREATE TABLE Funcionarios(
 	DataNascimento DATE
 );
 
+CREATE TABLE TipoUsuario(
+	IdTipoUsuario INT PRIMARY KEY IDENTITY,
+	Titulo VARCHAR (255)
+);
+
+CREATE TABLE Usuarios(
+	IdUsuario INT PRIMARY KEY IDENTITY,
+	Nome VARCHAR (255) NOT NULL,
+	Email VARCHAR (255) NOT NULL UNIQUE,
+	Senha VARCHAR (255) NOT NULL,
+	IdTipoUsuario INT FOREIGN KEY REFERENCES TipoUsuario (IdTipoUsuario)
+);
